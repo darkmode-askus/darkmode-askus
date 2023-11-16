@@ -69,9 +69,9 @@ const ChatBot = () => {
   };
 
   return (
-    <div className={"chat-container bottom-right d-flex flex-column align-items-end p-3"}>
+    <div className={"chat-container bottom-right}>
       <div className={`w-100 ${animationTag}`}>
-        <div className="d-flex justify-content-between ps-2 p-2 bg-vibrant-primary rounded-top-4">
+        <div className="d-flex justify-content-between">
           <div className="d-flex fw-medium fs-5 m-1 text-white align-items-center">
             <Image src={"images/hoku-pfp.png"} width={50} alt={"Hoku Picture"} />
             <h1 className={"ps-3 m-0"}>Ask Hoku</h1>
@@ -94,10 +94,10 @@ const ChatBot = () => {
           <div className="flex-grow-1"></div>
         </div>
 
-        <Form className="d-flex flex-row bg-white rounded-bottom-4 shadow" onSubmit={handleSend}>
+        <Form className="d-flex flex-row bg-white" onSubmit={handleSend}>
           <Form.Control
             type={"text"}
-            className={"m-2 p-1 mt-3 fw-light d-flex px-2 rounded-pill chat-field"}
+            className={"m-2 p-1 mt-3"}
             placeholder={"Ask Hoku"}
             onChange={(e) => {
               if (e.target.value.length > 120) {
@@ -108,7 +108,7 @@ const ChatBot = () => {
             value={text}
           ></Form.Control>
 
-          <div className={"d-flex flex-column justify-content-center pe-2"}>
+          <div className={"d-flex flex-column"}>
             <Button aria-label="Send" size={"sm"} type={"submit"} className={"rounded-circle btn-vibrant-primary mt-2"}>
               <SendFill />
             </Button>
@@ -118,7 +118,7 @@ const ChatBot = () => {
 
       <div>
         <Button
-          className={"mt-2 p-2 rounded-3 btn-vibrant-primary shadow"}
+          className={"mt-2 p-2 rounded-3"}
           onClick={() => {
             setChatOpen(!chatOpen);
           }}
