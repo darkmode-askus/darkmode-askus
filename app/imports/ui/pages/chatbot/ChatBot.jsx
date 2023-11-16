@@ -19,6 +19,7 @@ const ChatBot = () => {
     }
   }, [messages]);
 
+  // Start conversation with Hoku when chat appears
   useEffect(() => {
     setHokuLoading(true);
     // Call the 'hokuRepeat' method on the server to initiate the conversation with Hoku
