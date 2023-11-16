@@ -31,7 +31,7 @@ const Home = () => (
 
     <Row>
       <Col xs={12} md={8}>
-        <Row className={"bg-dull-light fw-bold rounded-4 p-3 m-1"}>
+        <Row className={"bg-dull-light fw-bold"}>
           <Col xs={2}>
             <CheckCircleFill className={"text-accent"} size={40} />
           </Col>
@@ -50,7 +50,7 @@ const Home = () => (
         </Row>
         <Row className={"py-4"}>
           <Col xs={3}>
-            <ChatDotsFill size={50} className={"m-2 text-accent"} />
+            <ChatDotsFill size={50} className={"m-2"} />
           </Col>
           <Col>
             <a href={"https://www.hawaii.edu/its/support-tools/"}>Support Tools</a>
@@ -62,7 +62,7 @@ const Home = () => (
         </Row>
         <Row className={"py-4"}>
           <Col xs={3}>
-            <Server size={50} className={"m-2 text-accent"} />
+            <Server size={50} className={"m-2"} />
           </Col>
           <Col>
             <a href={"https://www.hawaii.edu/its/servers-data-center-storage-services/"}>Servers, Data Center & Storage Services</a>
@@ -87,13 +87,6 @@ const Home = () => (
         <Row className={"py-4"}>
           <Col xs={3}>
             <BuildingFill size={50} className={"m-2 text-accent"} />
-          </Col>
-          <Col>
-            <a href={"https://www.hawaii.edu/its/ci/"}>Cyberinfrastructure</a>
-            <div>
-              Collaborative Research, Data Management, High Performance Computing Resources, Research Data Storage,
-              Research Software Engineering, Research Virtual Machines
-            </div>
           </Col>
         </Row>
         <Row className={"py-4"}>
