@@ -12,8 +12,9 @@ const ChatBot = () => {
   const bottomOfChat = useRef();
   const animationTag = chatOpen ? "slide-in" : "slide-out";
 
-  // Scroll to the bottom of the chat when a new message is received.
+
   useEffect(() => {
+    // Scroll to the bottom of the chat when a new message is received.
     if (bottomOfChat.current) {
       bottomOfChat.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -31,20 +32,19 @@ const ChatBot = () => {
         if (err) {
           setHokuLoading(false);
         } else {
+          // Stop loading and insert the Hoku introduction message into the messages state
           setHokuLoading(false);
-          // Insert the Hoku introduction message into the messages state
           insertMessage({ sender: "hoku", context: res, reportable: false });
         }
       },
     );
   }, []);
 
-  // Function to insert a message.
   const insertMessage = (message) => {
     setMessages((p) => [...p, message]);
   };
 
-  // Function to handle user message submission.
+  // Function for user message submission.
   const handleSend = (e) => {
     e.preventDefault();
 
@@ -54,7 +54,7 @@ const ChatBot = () => {
     insertMessage({ sender: "user", text: text });
     setHokuLoading(true);
 
-    // Call the 'askHoku' method on the server to get a response to the user's message.
+    // Call the 'askHoku' method on the server to get a response to answer the user's message.
     Meteor.call("askHoku", text, (err, res) => {
       if (err) {
         console.log(err);
