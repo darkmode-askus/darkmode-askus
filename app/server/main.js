@@ -38,7 +38,7 @@ Meteor.startup(() => {
   import embedding_data_archive from "./data/embedding-data-archive.json";
   import embedding_data_bonus from "./data/embedding-data-bonus.json";
   import embedding_data_bonus_2 from "./data/embedding-data-bonus-2.json";
-
+  // Created database for ITSAskUs articles
   // If embedding collection is empty, populate database
   if (EmbeddingCollection.find().count() === 0) {
     console.log("loading embedding data archive into database");
