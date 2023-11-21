@@ -12,6 +12,7 @@ import { Roles } from "meteor/alanning:roles";
 import SignIn from "../pages/SignIn";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ForumPage from '../pages/forum/ForumPage';
 
 // Only allow admins to view these routes
 const AdminProtectedRoute = ({ ready, children }) => {
@@ -53,6 +54,7 @@ export const App = () => {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/forum" element={<ForumPage />} />
           <Route path="/notauthorized" element={<Page text={"You Are Not Authorized"} />} />
           <Route path="/signin" element={<SignIn />} />
           <Route

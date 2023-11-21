@@ -54,29 +54,41 @@ const NavBar = () => {
             <Nav.Link href="https://www.hawaii.edu/its/about/">ABOUT</Nav.Link>
             <Nav.Link href="https://www.hawaii.edu/its/contact/">CONTACT ITS</Nav.Link>
           </Nav>
-          {isAdmin && (
-            // If the current user is signed in and is an admin, display the FAQ and Report in the NavBar
-            <Nav className={"d-flex justify-content-center me-auto"}>
-              <br />
-              <Nav.Link
-                onClick={() => {
-                  navigate("/admin/faq");
-                }}
-                href="#"
-                className={"p-2"}
-              >
-                FAQ
-              </Nav.Link>
-              <Nav.Link
-                onClick={() => {
-                  navigate("/admin/report");
-                }}
-                className={"p-2"}
-              >
-                Reports
-              </Nav.Link>
-            </Nav>
-          )}
+          <Nav className="d-flex justify-content-center me-auto">
+            <br />
+            <Nav.Link
+              onClick={() => {
+                navigate('/forum');
+              }}
+              href="#"
+              className="p-2"
+            >
+              Forum
+            </Nav.Link>
+            {isAdmin && (
+              // If the current user is signed in and is an admin, display the FAQ and Report in the NavBar
+              <>
+                <Nav.Link
+                  onClick={() => {
+                    navigate('/admin/faq');
+                  }}
+                  href="#"
+                  className="p-2"
+                >
+                  FAQ
+                </Nav.Link>
+                <Nav.Link
+                  onClick={() => {
+                    navigate('/admin/report');
+                  }}
+                  href="#"
+                  className="p-2"
+                >
+                  Reports
+                </Nav.Link>
+              </>
+            )}
+          </Nav>
         </Navbar.Collapse>
         {loggedIn ? (
           <Nav.Link
