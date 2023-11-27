@@ -22,7 +22,7 @@ const ForumPage = () => {
       {forums.length === 0 && (
         // If there are no FAQs in the database, display this message
         <Col>
-          <h1 className={"text-center"}>No FAQ's in Database</h1>
+          <h1 className={"text-center"}>No Forums in Database</h1>
         </Col>
       )}
 

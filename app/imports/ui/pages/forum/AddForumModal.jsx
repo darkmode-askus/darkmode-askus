@@ -41,7 +41,7 @@ const AddForumModal = () => {
         </Modal.Header>
         <Modal.Body className={"overflow-y-auto"}>
           <Form
-            id={"add-forum"}
+            id={"add-forum-form"}
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit();
@@ -84,7 +84,7 @@ const AddForumModal = () => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button type="submit" form="add-forum" variant="primary">
+          <Button type="submit" form="add-forum-form" variant="primary">
             Submit
           </Button>
         </Modal.Footer>

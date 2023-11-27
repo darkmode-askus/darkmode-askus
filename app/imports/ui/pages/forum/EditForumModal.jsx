@@ -3,8 +3,8 @@ import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 const EditForumModal = ({ forum }) => {
-  const [forumTitle, setForumTitle] = useState(forum.title);
-  const [forumDescription, setForumDescription] = useState(forum.description);
+  const [forumTitle, setForumTitle] = useState("");
+  const [forumDescription, setForumDescription] = useState("");
 
   const [show, setShow] = useState(false);
 

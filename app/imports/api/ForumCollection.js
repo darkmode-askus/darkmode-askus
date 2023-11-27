@@ -5,7 +5,6 @@ const ForumCollection = new Mongo.Collection("forum");
 
 const ForumSchema = new SimpleSchema({
   source: { type: String },
-  date: { type: Date },
   title: { type: String },
   description: { type: String },
 });
@@ -15,7 +14,6 @@ ForumCollection.attachSchema(ForumSchema);
 const addForum = (title, description) => {
   const forum = {
     source: Meteor.call("getUsername"),
-    date: new Date(),
     title: title,
     description: description,
   };
