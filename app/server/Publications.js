@@ -1,6 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { ReportCollection } from "../imports/api/ReportCollection";
 import { FAQCollection } from "../imports/api/FAQCollection";
+import { ForumCollection } from "../imports/api/ForumCollection";
 
 // Publish reports for admins only
 Meteor.publish("reports", function () {
@@ -17,6 +18,12 @@ Meteor.publish("resolved", function () {
   }
   return this.ready();
 });
+
+
+Meteor.publish("forum", function () {
+  return ForumCollection.find({});
+});
+
 
 Meteor.publish(null, function () {
   if (this.userId) {

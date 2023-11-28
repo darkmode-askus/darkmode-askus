@@ -3,17 +3,7 @@ import { ExclamationCircle } from "react-bootstrap-icons";
 import ReportModal from "../report/ReportModal";
 import { Image } from "react-bootstrap";
 import { toast } from "react-toastify";
-
-function ChatLoading() {
-  // Loading animation for chatbot
-  return (
-    <div className="d-flex py-1">
-      <span className="dot delay-1" />
-      <span className="dot delay-2" />
-      <span className="dot delay-3" />
-    </div>
-  );
-}
+import ChatLoading from "./ChatLoading";
 
 const AiChatMessage = ({ context, loading = false, reportable = true }) => {
   // Use the useState hook to manage the state of the 'show' variable
