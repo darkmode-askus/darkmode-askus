@@ -54,7 +54,7 @@ const AddForumModal = () => {
                   type="text"
                   placeholder="Title"
                   value={forumTitle}
-                  isInvalid={forumTitle.trim() === ""}
+                  // isInvalid={forumTitle.trim() === ""}
                   onChange={(e) => {
                     setForumTitle(e.target.value);
                   }}
@@ -67,10 +67,12 @@ const AddForumModal = () => {
               <Form.Label>Description</Form.Label>
               <InputGroup hasValidation>
                 <Form.Control
+                  as={"textarea"}
+                  rows={4}
                   type="text"
                   placeholder="Description"
                   value={forumDescription}
-                  isInvalid={forumDescription.trim() === ""}
+                  // isInvalid={forumDescription.trim() === ""}
                   onChange={(e) => {
                     setForumDescription(e.target.value);
                   }}
