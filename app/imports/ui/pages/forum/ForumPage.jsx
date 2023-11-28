@@ -20,7 +20,7 @@ const ForumPage = () => {
         <Col className={"d-flex justify-content-end"}>
           <Dropdown>
           <Dropdown.Toggle className={"bg-secondary border-secondary"}>
-            Filter
+            Filter By
           </Dropdown.Toggle>
           <DropdownMenu>
             <Dropdown.Item href="#">Likes</Dropdown.Item>
