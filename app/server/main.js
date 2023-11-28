@@ -7,6 +7,7 @@ import { addFAQ, editFAQ, removeFAQ } from "../imports/api/FAQCollection";
 import { askHoku, hokuRepeat } from "./openai/hoku-tools";
 import { getEmbedding } from "./openai/openai-tools";
 import { getUsername, isAdmin } from "./Accounts";
+import {addForum} from "../imports/api/ForumCollection";
 
 // Methods to call from the client
 Meteor.methods({
@@ -21,6 +22,7 @@ Meteor.methods({
   addFAQ,
   removeFAQ,
   editFAQ,
+  addForum,
 });
 
 // Insert data into the embeddings database
