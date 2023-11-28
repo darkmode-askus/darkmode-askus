@@ -24,6 +24,7 @@ const SignIn = () => {
       setError("Please Enter an Email and Password");
       return;
     }
+
     Meteor.loginWithPassword(email, password, (err) => {
       if (err) {
         resetForm();

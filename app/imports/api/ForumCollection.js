@@ -12,8 +12,15 @@ const ForumSchema = new SimpleSchema({
 ForumCollection.attachSchema(ForumSchema);
 
 const addForum = (title, description) => {
+  const username = Meteor.call("getUsername");
+
+  // Exit function if username is null
+  if (!username) {
+    return;
+  }
+
   const forum = {
-    source: Meteor.call("getUsername"),
+    source: username,
     title: title,
     description: description,
   };
@@ -22,21 +29,26 @@ const addForum = (title, description) => {
 };
 
 const removeForum = (id) => {
-  if (!Meteor.call("isAdmin") || !Meteor.call(id)) {
+  const forum = ForumCollection.findOne({"_id": id});
+
+  // exit function if the current user is not the owner of the forum post
+  if (forum.source !== Meteor.call("getUsername")) {
     return;
   }
 
   ForumCollection.remove(id);
 };
 
-const editForum = async (id, title, description) => {
-  if (!Meteor.call("isAdmin") || !Meteor.call(id)) {
-    return;
-  }
+// Will add edit functionality later
+// const editForum = async (id, title, description) => {
+//   // exit function if the current user is not the owner of the forum post
+//   if (forum.source !== Meteor.call("getUsername")) {
+//     return;
+//   }
+//
+//   removeForum(id);
+//   addForum(title, description);
+//
+// };
 
-  removeForum(id);
-  addForum(title, description);
-
-};
-
-export { ForumCollection, ForumSchema, addForum, removeForum, editForum};
+export { ForumCollection, ForumSchema, addForum, removeForum };
