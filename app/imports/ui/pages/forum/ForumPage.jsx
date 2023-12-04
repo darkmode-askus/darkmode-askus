@@ -18,15 +18,15 @@ const ForumPage = () => {
     <Container>
       <Col className={"d-flex justify-content-center p-2 border"}>
         <Col className={"d-flex justify-content-end"}>
-          <Dropdown>
-          <Dropdown.Toggle className={"bg-secondary border-secondary"}>
-            Filter By
-          </Dropdown.Toggle>
-          <DropdownMenu>
-            <Dropdown.Item href="#">Likes</Dropdown.Item>
-            <Dropdown.Item href="#">Replies</Dropdown.Item>
-          </DropdownMenu>
-        </Dropdown>
+          <Dropdown className={"me-2"}>
+            <Dropdown.Toggle className={"bg-secondary border-secondary"}>
+              Filter By
+            </Dropdown.Toggle>
+            <DropdownMenu>
+              <Dropdown.Item href="#">Likes</Dropdown.Item>
+              <Dropdown.Item href="#">Replies</Dropdown.Item>
+            </DropdownMenu>
+          </Dropdown>
           <AddForumModal/>
         </Col>
       </Col>
@@ -41,7 +41,7 @@ const ForumPage = () => {
 
       <Col>
         {forums.map((forum, index) => (
-          <ForumRow forum={forum} index={index} />
+          <ForumRow forum={forum} index={index}/>
         ))}
       </Col>
     </Container>
