@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import Home from "../pages/Home";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -10,7 +10,7 @@ import { Roles } from "meteor/alanning:roles";
 import SignIn from "../pages/SignIn";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ForumPage from '../pages/forum/ForumPage';
+import ForumPage from "../pages/forum/ForumPage";
 import BasicPage from "../components/BasicPage";
 import AdminProtectedRoute from "../components/AdminProtectedRoute";
 
