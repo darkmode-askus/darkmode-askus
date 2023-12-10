@@ -3,17 +3,26 @@ import SimpleSchema from "simpl-schema";
 
 const ForumCollection = new Mongo.Collection("forum");
 
+const commentSchema = new SimpleSchema({
+  source: { type: String },
+  comment: { type: String },
+})
+
 const ForumSchema = new SimpleSchema({
   source: { type: String },
   title: { type: String },
   description: { type: String },
+  comments: {type: Array},
+  "comments.$": {
+    type: commentSchema,
+  },
 });
 
 ForumCollection.attachSchema(ForumSchema);
 
 const addForum = (title, description) => {
   const username = Meteor.call("getUsername");
-
+  console.log(username);
   // Exit function if username is null
   if (!username) {
     return;
@@ -23,6 +32,7 @@ const addForum = (title, description) => {
     source: username,
     title: title,
     description: description,
+    comments: [],
   };
 
   ForumCollection.insert(forum);
@@ -39,16 +49,23 @@ const removeForum = (id) => {
   ForumCollection.remove(id);
 };
 
-// Will add edit functionality later
-// const editForum = async (id, title, description) => {
-//   // exit function if the current user is not the owner of the forum post
-//   if (forum.source !== Meteor.call("getUsername")) {
-//     return;
-//   }
-//
-//   removeForum(id);
-//   addForum(title, description);
-//
-// };
+// users.update({_id : "Jack"},{$set:{age : 13, username : "Jack"}});
 
-export { ForumCollection, ForumSchema, addForum, removeForum };
+const editForum = async (forum, title, description) => {
+  // exit function if the current user is not the owner of the forum post
+  if (forum.source !== Meteor.call("getUsername")) {
+    return;
+  }
+  ForumCollection.update({_id: forum._id}, {$set: {title: title, description: description}})
+};
+
+const addForumComment = (forum, comment) => {
+  let username = Meteor.call("getUsername")
+  if (username === "") {
+    username = "Anonymous"
+  }
+
+  ForumCollection.update({_id: forum._id}, {$push: {comments: {source: username, comment: comment}}})
+}
+
+export { ForumCollection, ForumSchema, addForum, removeForum, editForum, addForumComment };

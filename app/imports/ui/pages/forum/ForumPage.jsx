@@ -30,8 +30,6 @@ const ForumPage = () => {
           <AddForumModal/>
         </Col>
       </Col>
-
-
       {forums.length === 0 && (
         // If there are no FAQs in the database, display this message
         <Col>
