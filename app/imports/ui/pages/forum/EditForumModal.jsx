@@ -21,7 +21,7 @@ const EditForumModal = ({ forum }) => {
       return;
     }
     handleClose();
-    Meteor.call("editForum", forum._id, forumTitle, forumDescription, (err) => {
+    Meteor.call("editForum", forum, forumTitle, forumDescription, (err) => {
       if (err) {
         toast.error("Could not update Forum");
       } else {

@@ -49,7 +49,7 @@ body {
   background-color: var(--bg) !important;
 }
 
-body .fw-bold {
+body .fw-bold, .title {
   color: var(--dull-primary);
 }
 
