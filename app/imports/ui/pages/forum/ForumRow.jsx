@@ -11,8 +11,8 @@ import { toast } from 'react-toastify';
 const FAQRow = ({ forum, index }) => {
 
   const rowTag = index % 2 === 1 ? "bg-dull-light" : "bg-dull-light";
-  const isAuthor = forum.source == Meteor.user().username;
-  const isAdmin = Roles.userIsInRole(Meteor.userId(), "admin");
+  const isAuthor = Meteor.userId() !== null && Meteor.user().username == forum.source;
+  const isAdmin = Meteor.userId() !== null && Roles.userIsInRole(Meteor.userId(), "admin");
   const handleDelete = () => {
     Meteor.call("removeForum", forum._id);
     toast.success("Forum Deleted");
@@ -37,7 +37,7 @@ const FAQRow = ({ forum, index }) => {
             <Row>
               <div className={"fw-bold"}>Source: {forum.source}</div>
             </Row>
-            <Row className={"text-wrap"}>
+            <Row>
               <div>{forum.description}</div>
             </Row>
             <Row className={"border-bottom border-warning"}>
