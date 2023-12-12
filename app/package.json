@@ -5,12 +5,7 @@
     "start": "meteor --settings ./config/settings.development.json",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "testcafe": "testcafe chrome tests/*.testcafe.js",
-    "testcafe-single": "testcafe chrome tests/*.testcafe.js -t \"Test that signin and signout work\"",
-    "testcafe-ci": "testcafe chrome:headless tests/*.testcafe.js -q --app \"meteor npm run start\"",
-    "test-all": "meteor reset && meteor npm run unimported && meteor npm run testcafe-ci",
-    "unimported": "npx unimported"
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
     "@babel/runtime": "^7.20.7",
@@ -40,8 +35,8 @@
     }
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
-    "sass": "^1.69.5",
-    "testcafe": "^3.4.0"
+    "sass": "^1.69.5"
   }
 }
