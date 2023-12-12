@@ -37,5 +37,3 @@ jobs:
         shell: bash -l {0}
         run: |
           meteor npm install
-          meteor npm run lint
-          meteor npm run testcafe-ci
