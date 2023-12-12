@@ -1,5 +1,6 @@
 import { Mongo } from "meteor/mongo";
 import SimpleSchema from "simpl-schema";
+import { Meteor } from 'meteor/meteor';
 
 const ForumCollection = new Mongo.Collection("forum");
 
@@ -41,8 +42,8 @@ const addForum = (title, description) => {
 const removeForum = (id) => {
   const forum = ForumCollection.findOne({"_id": id});
 
-  // exit function if the current user is not the owner of the forum post
-  if (forum.source !== Meteor.call("getUsername")) {
+  // exit function if the current user is not the owner of the forum post or admin
+  if (forum.source !== Meteor.call("getUsername") && Meteor.call("isAdmin") == false) {
     return;
   }
 
