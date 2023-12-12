@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ForumPage from "../pages/forum/ForumPage";
 import BasicPage from "../components/BasicPage";
 import AdminProtectedRoute from "../components/AdminProtectedRoute";
+import SignUp from '../pages/SignUp';
 
 export const App = () => {
   const { ready } = useTracker(() => {
@@ -31,6 +32,7 @@ export const App = () => {
           <Route exact path="/forum" element={<ForumPage />} />
           <Route path="/notauthorized" element={<BasicPage text={"You Are Not Authorized"} />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/admin/report"
             element={
