@@ -20,7 +20,7 @@ Meteor.publish("resolved", function () {
 });
 
 
-Meteor.publish("forum", function () {
+Meteor.publish("forums", function () {
   return ForumCollection.find({});
 });
 
