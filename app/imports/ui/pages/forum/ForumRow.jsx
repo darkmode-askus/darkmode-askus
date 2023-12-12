@@ -41,9 +41,9 @@ const FAQRow = ({ forum, index }) => {
               <div>{forum.description}</div>
             </Row>
             <Row className={"border-bottom border-warning"}>
-              <Col xs={12} md={1} className={"d-flex justify-content-center m-3"}>
-              <AddCommentModal forum={forum}/>
-            </Col>
+              <Col xs={12} md={1} className={"d-flex justify-content-center mx-1 my-3"}>
+                <AddCommentModal forum={forum}/>
+              </Col>
               {isAuthor && (
                 <Col xs={12} md={1} className={"d-flex justify-content-center"}>
                   <EditForumModal forum={forum} />
